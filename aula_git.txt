@@ -1,0 +1,111 @@
+
+armazenar o token no cache do git
+git config --global credential.helper cache
+para remover o token do cache
+git config --global --unset credential.helper
+
+ ** Breve explicação
+ O Git possui um ciclo de vida
+ 
+ 	1 - Untracked(nao marcado) = São arquivos que ainda não foram adicionados ao Git - ainda não tem nenhuma versao da existencia do arquivo
+	
+	2 - UnModified = Arquivos que foram adicionados mas ainda não foram modificados e 
+ 	      		por estarem nesta situação estão prontos para irem para a fase de d com o comando Git Add
+	
+	3 - Modified = Arquivos que foram modificados e devem ser adicionados para o Staged para poderem ser commitados
+	
+	4 - Staged = Área preparada pra a versão, apois ter sido feito o commit, o status volta para unModified
+
+
+* Configuração do seu usuário no Git
+
+	git config --global user.name "Mirian Bernardes"
+	git config --global user.email "mirianbernardes@gmail.com"
+	 
+
+* Definir o Visual Studio Code como editor padrão.
+
+	git config --global core.editor 'code --wait'
+
+* Teste para saber se funcionou
+
+	git config --global -e
+
+
+* Comando listar configurações
+	
+	git config --list
+	
+* Mostrar o status do git
+	
+	git status
+
+* Adicionar arquivo ao Git
+	
+	git add nomedoarquivo.extensao
+	
+* Comando para criar um snapshot do arquivo
+	
+	git commit nomedoarquivo.extensao -m "mensagem do commit"
+		obs: o -m é para dizer para o git que tu vais passar uma mensagem no commit
+	git commit Readme.md -am "mnensagem do commit"
+	obs: adicionar todos os arquivos modificados
+	
+		
+* comando para ver a lista de commits feitos
+
+	git log
+	
+	git log --decorate
+	
+	git shortlog - listar a quantidade de commits por pessoas
+	git log --graph - em forma gráfica
+	
+	
+	git log --author="Ricardo Santana"
+	
+	git show **o id da branch**
+	git show 55fa68dcc0cd4bfb80fa4c87d0dc042475fe692e
+	
+* Comando para ver alteraçoes antes de enviar
+
+	git diff	
+	
+
+* Remover um arquivo do Staged
+	
+	git reset HEAD Readme.md
+
+* Retornar  uma mudança no arquivo quando ainda estão em estado de ediçao
+	
+	git checkout Readme.md
+	
+	
+* Reset mudanças
+	é necessário escolher a hash apartir de qual commit quer iniciar o processo
+	
+	--soft
+		volta as modificaçoes com os arquivos em staged
+		git reset --soft 3f4c927ebe04df737455c245a292abea86655481
+	--mixed
+		volta as modificaçoes com os arquivos com o status de modified
+		git reset --mixed 3f4c927ebe04df737455c245a292abea86655481
+	--hard
+		volta todas as modificaçoes
+	
+	8fd709234250a1aac05b61ba10ccc3414d39c920
+* Criar branch
+ 
+	git checkout -b testing
+	
+* Excluir branch
+	git branch -D testing
+
+* Unir Branches
+
+	Merge - 
+	git
+	Rebase - 
+	
+	git remote add origin git@github.com:mirianbernardes/faculdade.git
+	
